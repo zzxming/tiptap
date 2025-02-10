@@ -39,6 +39,7 @@ import Underline from '@tiptap/extension-underline'
 import { useEditor } from '@tiptap/vue-3'
 import { FontSize } from './tiptap/font-size'
 import { LineHeight } from './tiptap/line-height'
+import { linkHoverPlugin } from './tiptap/link'
 
 export interface UseTiptapOptions {
   content: Ref<string | JSONContent>
@@ -101,6 +102,8 @@ export function useTiptap(options: UseTiptapOptions) {
         limit,
         mode: 'textSize',
       }),
+
+      linkHoverPlugin,
     ],
     onUpdate({ editor }) {
       content.value = editor.getJSON()
@@ -116,19 +119,11 @@ export function useTiptap(options: UseTiptapOptions) {
     autofocus,
     editable: true,
   })
-  const editorCountPercentage = computed(() => {
-    if (!limit) {
-      return 0
-    }
-    const characters = editor.value?.storage.characterCount.characters()
-    return Math.round((100 / limit) * characters)
-  })
   onBeforeUnmount(() => {
     editor.value?.destroy()
   })
 
   return {
     editor,
-    editorCountPercentage,
   }
 }

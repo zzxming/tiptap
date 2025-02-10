@@ -213,7 +213,7 @@ const content = ref({
   ],
 })
 const limit = 2000
-const { editor, editorCountPercentage } = useTiptap({
+const { editor } = useTiptap({
   content,
   autofocus: false,
   placeholder: ref('Write something here...'),
@@ -254,8 +254,6 @@ const tools = [
       <UButton v-for="item in tools" :key="item.name" @click="item.handler">
         {{ item.name }}
       </UButton>
-
-      {{ editor?.storage.characterCount.characters() }} / {{ limit }} - {{ editorCountPercentage }}%
     </div>
     <EditorContent text-start :editor="editor" />
   </div>
