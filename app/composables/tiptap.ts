@@ -25,7 +25,7 @@ import Paragraph from '@tiptap/extension-paragraph'
 import Placeholder from '@tiptap/extension-placeholder'
 import Strike from '@tiptap/extension-strike'
 import Subscript from '@tiptap/extension-subscript'
-import Subperscript from '@tiptap/extension-superscript'
+import Superscript from '@tiptap/extension-superscript'
 import Table from '@tiptap/extension-table'
 import TableCell from '@tiptap/extension-table-cell'
 import TableHeader from '@tiptap/extension-table-header'
@@ -39,7 +39,7 @@ import Underline from '@tiptap/extension-underline'
 import { useEditor } from '@tiptap/vue-3'
 import { FontSize } from './tiptap/font-size'
 import { LineHeight } from './tiptap/line-height'
-import { linkHoverPlugin } from './tiptap/link'
+import { linkHoverPlugin } from './tiptap/link-hover'
 
 export interface UseTiptapOptions {
   content: Ref<string | JSONContent>
@@ -73,7 +73,7 @@ export function useTiptap(options: UseTiptapOptions) {
       BulletList,
       OrderedList,
       Subscript,
-      Subperscript,
+      Superscript,
       Strike,
       Link,
       Code,
