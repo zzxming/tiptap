@@ -33,13 +33,13 @@ import TableRow from '@tiptap/extension-table-row'
 import TaskItem from '@tiptap/extension-task-item'
 import TaskList from '@tiptap/extension-task-list'
 import Text from '@tiptap/extension-text'
-import TextAlign from '@tiptap/extension-text-align'
 import TextStyle from '@tiptap/extension-text-style'
 import Underline from '@tiptap/extension-underline'
 import { useEditor } from '@tiptap/vue-3'
 import { FontSize } from './tiptap/font-size'
 import { LineHeight } from './tiptap/line-height'
 import { linkHoverPlugin } from './tiptap/link-hover'
+import { TextAlign } from './tiptap/text-align'
 
 export interface UseTiptapOptions {
   content: Ref<string | JSONContent>
