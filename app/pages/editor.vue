@@ -213,48 +213,43 @@ const content = ref({
   ],
 })
 const limit = 2000
-const { editor } = useTiptap({
+const { editor, tools } = useTiptap({
   content,
   autofocus: false,
   placeholder: ref('Write something here...'),
   limit,
+  // tools: [
+  //   {
+  //     name: 'align',
+  //     values: ['left', 'center', 'right', 'justify'],
+  //   },
+  //   // {
+  //   //   name: 'heading',
+  //   //   values: [false, 1, 2, 3, 4, 5, 6],
+  //   // },
+  //   {
+  //     name: 'size',
+  //     action: () => {
+  //       editor.value?.commands.toggleFontSize('20px')
+  //     },
+  //   },
+  //   {
+  //     name: 'lineHeight',
+  //     action: () => {
+  //       editor.value?.commands.toggleLineHeight('20px')
+  //     },
+  //   },
+  //   {
+  //     name: 'heading',
+  //   },
+  // ],
+  // mergeDefaultTools: true,
 })
-
-const tools = [
-  {
-    name: 'bold',
-    handler: () => {
-      editor.value?.chain().focus().toggleBold().run()
-    },
-  },
-  {
-    name: 'italic',
-    handler: () => {
-      editor.value?.chain().focus().toggleItalic().run()
-    },
-  },
-  {
-    name: 'size',
-    handler: () => {
-      editor.value?.commands.toggleFontSize('20px')
-    },
-  },
-  {
-    name: 'lineHeight',
-    handler: () => {
-      editor.value?.commands.toggleLineHeight('20px')
-    },
-  },
-]
 </script>
 
 <template>
   <div>
-    <div>
-      <UButton v-for="item in tools" :key="item.name" @click="item.handler">
-        {{ item.name }}
-      </UButton>
-    </div>
+    <TiptapToolbar :tools="tools" :editor="editor" />
     <EditorContent text-start :editor="editor" />
   </div>
 </template>
