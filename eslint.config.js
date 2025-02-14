@@ -9,4 +9,9 @@ export default nuxt(
       formatters: true,
     },
   ),
+  {
+    rules: {
+      'vue/valid-attribute-name': 'off',
+    },
+  },
 )
